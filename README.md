@@ -1,5 +1,5 @@
-Codon tables for various organisms, in CSV format
--------------------------------------------------
+Codon usage tables for various organisms, in CSV format
+--------------------------------------------------------
 
 This repository contains simple CSV files of the codon usage of various organisms,
 meant to be used by codon optimization software. All files are of the form
@@ -16,8 +16,9 @@ K;AAG;0.24
 etc.
 ```
 
+It also contains a script to download new codon usage tables, using a TaxID to identify organisms.
 
-The data comes from [http://www.kazusa.or.jp](http://www.kazusa.or.jp).
+The data comes from [http://www.kazusa.or.jp](http://www.kazusa.or.jp)(they computed the codon usages from NCBI sequence data).
 
 More informations are available [here](http://www.kazusa.or.jp/codon/readme_codon.html
 ) and here is the original paper to cite:
@@ -32,6 +33,5 @@ Nakamura, Y., Gojobori, T. and Ikemura, T. (2000) Nucl. Acids Res. 28, 292.
 Contribute
 ----------
 
-This repo was started by Zulko at the Edinburgh Genome Foundry and is released
-on [Github]() under a Public Domain licence. Feel free to add other tables
-if you think of more common species.
+This repo was started at the Edinburgh Genome Foundry by Zulko and is released
+on [Github](https://github.com/Edinburgh-Genome-Foundry/codon-usage-tables) under a Public Domain licence (and no warranty whatsoever, please cross-check the codon usage with other sources if you are not sure). Feel free to add other tables if you think of more commonly used species.
