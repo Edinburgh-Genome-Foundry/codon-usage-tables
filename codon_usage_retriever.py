@@ -24,18 +24,18 @@ codon_regexpr = r"([ATGCU]{3}) ([A-Z]|\*) (\d.\d+)"
 def create_codon_table(taxid=316407, target_file="codon_usage.csv"):
     html_content = urlopen(kazusa_url % taxid).read().replace("\n", " ")
     data = "\n".join(sorted([
-        "%s;%s;%s" % (aa, codon, usage)
+        "%s,%s,%s" % (aa, codon, usage)
         for codon, aa, usage in re.findall(codon_regexpr, html_content)
     ]))
     with open(target_file, "w+") as f:
-        f.write("amino_acid;codon;relative_frequency\n")
+        f.write("amino_acid,codon,relative_frequency\n")
         f.write(data)
 
 
 def get_all_tables():
     with open("organisms.csv", "r") as f:
         for line in f.readlines()[1:]:
-            organism, taxid = line.strip("\n").split(";")
+            organism, taxid = line.strip("\n").split(",")
             print("Retrieving %s (taxid %s)" % (organism, taxid))
             target = os.path.join("tables", "%s_%s.csv" % (organism, taxid))
             create_codon_table(taxid=taxid, target_file=target)
