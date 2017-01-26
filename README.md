@@ -6,13 +6,13 @@ meant to be used by codon optimization software. All files are of the form
 
 ```
 amino_acid;codon;relative_frequency
-*;UAA;0.64
-*;UAG;0.07
-*;UGA;0.29
-A;GCA;0.21
-A;GCC;0.27
-K;AAA;0.76
-K;AAG;0.24
+*,UAA,0.64
+*,UAG,0.07
+*,UGA,0.29
+A,GCA,0.21
+A,GCC,0.27
+K,AAA,0.76
+K,AAG,0.24
 etc.
 ```
 
