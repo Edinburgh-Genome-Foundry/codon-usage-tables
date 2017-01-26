@@ -2,8 +2,21 @@
 """Retrieve a Codon usage table from kazusa.or.jp, and store in a CSV file.
 
 Usage:
-> python retrieve_cdu.py all
-> python retrieve_cdu.py [TaxidNumber] [TargetFile.csv]
+------
+To retrieve a codon table for one organism, given its TaxID, use:
+
+> python codon_usage_retriever.py [TaxidNumber] [TargetFile.csv]
+
+For instance:
+
+> python codon_usage_retriever.py 316407 e_coli_codon_usage.csv
+
+To retrieve codon tables from all organisms in ``organisms.csv`` at once, use:
+
+> python codon_usage_retriever.py all
+
+
+
 """
 
 import sys
