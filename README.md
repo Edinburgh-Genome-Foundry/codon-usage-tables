@@ -5,7 +5,7 @@ This repository contains simple CSV files of the codon usage of various organism
 meant to be used by codon optimization software. All files are of the form
 
 ```
-amino_acid;codon;relative_frequency
+amino_acid,codon,relative_frequency
 *,UAA,0.64
 *,UAG,0.07
 *,UGA,0.29
