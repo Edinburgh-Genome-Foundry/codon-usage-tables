@@ -32,7 +32,7 @@ Manual:
 
 .. code:: bash
 
-    (sudo) python setup.py develop
+    (sudo) python setup.py install
 
 Usage
 -----

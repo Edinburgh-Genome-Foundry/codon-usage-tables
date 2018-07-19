@@ -18,7 +18,7 @@ etc.
 
 It also contains a script to download new codon usage tables, using a TaxID to identify organisms.
 
-The data comes from [http://www.kazusa.or.jp](http://www.kazusa.or.jp)(they computed the codon usages from NCBI sequence data).
+The data comes from [http://www.kazusa.or.jp](http://www.kazusa.or.jp) (they computed the codon usages from NCBI sequence data).
 
 More informations are available [here](http://www.kazusa.or.jp/codon/readme_codon.html
 ) and here is the original paper to cite:
