@@ -26,7 +26,7 @@ via pip:
 
 .. code:: bash
 
-    pip install codon_usage_tables
+    pip install python_codon_tables
 
 Manual:
 
