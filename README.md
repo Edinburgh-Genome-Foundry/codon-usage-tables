@@ -29,10 +29,10 @@ status for the year 2000.
 Nakamura, Y., Gojobori, T. and Ikemura, T. (2000) Nucl. Acids Res. 28, 292.
 ```
 
-Bindings
----------
+Python bindings
+---------------
 
-To get these tables from Python, use the [python_codon_tables](https://github.com/Edinburgh-Genome-Foundry/codon-usage-tables/python_codon_tables) package.
+To get these tables from Python, use the [python_codon_tables](https://github.com/Edinburgh-Genome-Foundry/codon-usage-tables/tree/master/python_codon_tables) package.
 
 
 
