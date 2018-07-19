@@ -1,0 +1,52 @@
+Metadata-Version: 1.0
+Name: codon-usage-tables
+Version: 0.1.0
+Summary: Codon Usage Tables for Python, from kazusa.or.jp
+Home-page: UNKNOWN
+Author: Zulko
+Author-email: UNKNOWN
+License: MIT
+Description-Content-Type: UNKNOWN
+Description: Codon usage tables
+        ===================
+        
+        For Python 3+
+        
+        Installation
+        ------------
+        
+        via pip:
+        
+        .. code:: bash
+        
+            pip install codon_usage_tables
+        
+        Manual:
+        
+        .. code:: bash
+        
+            (sudo) python setup.py develop
+        
+        Usage
+        -----
+        
+        
+        .. code:: python
+        
+            import codon_usage_tables
+        
+            # PRINT THE NAMES OF ALL AVAILABLE TABLES
+            print (codon_usage_tables.available_tables)
+        
+            # LOAD ONE TABLE BY NAME
+            table = codon_usage_tables.get_table("b_subtilis_1423")
+            print (table['T']['ACA'])  # returns 0.4
+            print (table['*']['UAA'])  # returns 0.61
+        
+        
+            # LOAD ALL TABLES AT ONCE
+            codon_tables = codon_usage_tables.get_all_tables()
+            print (table['c_elegans_6239']['L']['CUA'])  # returns 0.09
+        
+Keywords: DNA codon usage
+Platform: UNKNOWN

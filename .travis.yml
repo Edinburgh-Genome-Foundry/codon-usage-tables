@@ -1,0 +1,11 @@
+language: python
+python:
+  - "3.6"
+# command to install dependencies
+install:
+  - pip install pytest
+  - pip install -e .
+# command to run tests
+script:
+  - cd python_codon_tables
+  - python -m pytest

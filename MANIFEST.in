@@ -1,0 +1,3 @@
+data/tables/*
+include *.txt
+include *.rst

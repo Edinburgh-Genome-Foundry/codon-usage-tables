@@ -1,0 +1,9 @@
+MANIFEST.in
+README.md
+setup.py
+python_lib/__init__.py
+python_lib/ez_setup.py
+python_lib/codon_usage_tables.egg-info/PKG-INFO
+python_lib/codon_usage_tables.egg-info/SOURCES.txt
+python_lib/codon_usage_tables.egg-info/dependency_links.txt
+python_lib/codon_usage_tables.egg-info/top_level.txt
