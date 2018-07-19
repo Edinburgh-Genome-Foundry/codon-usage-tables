@@ -1,4 +1,4 @@
-Codon usage tables
+Python Codon Tables
 ===================
 
 Provides codon usage tables as dictionnaries, for Python 3+
@@ -48,7 +48,6 @@ Usage
     table = pct.get_table("b_subtilis_1423")
     print (table['T']['ACA'])  # returns 0.4
     print (table['*']['UAA'])  # returns 0.61
-
 
     # LOAD ALL TABLES AT ONCE
     codon_tables = pct.get_all_tables()
