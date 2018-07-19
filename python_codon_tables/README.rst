@@ -17,7 +17,7 @@ These tables are from `kazusa.or.jp <http://www.kazusa.or.jp/codon/readme_codon.
 Contribute
 ----------
 
-This project was started at the Edinburgh Genome Foundry by Zulko and is released on [Github](https://github.com/Edinburgh-Genome-Foundry/codon-usage-tables) under a Public Domain licence (and no warranty whatsoever, please cross-check the codon usage with other sources if you are not sure). Feel free to add other tables if you think of more commonly used species.
+This project was started at the Edinburgh Genome Foundry by Zulko and is released on `Github <https://github.com/Edinburgh-Genome-Foundry/codon-usage-tables>`_ under a Public Domain licence (and no warranty whatsoever, please cross-check the codon usage with other sources if you are not sure). Feel free to add other tables if you think of more commonly used species.
 
 Installation
 ------------

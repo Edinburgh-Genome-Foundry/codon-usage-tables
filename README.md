@@ -1,8 +1,8 @@
 Codon usage tables for various organisms, in CSV format
 --------------------------------------------------------
 
-This repository contains simple CSV files of the codon usage of various organisms,
-meant to be used by codon optimization software. All files are of the form
+This repository contains simple CSV files (in [``data/tables/``](https://github.com/Edinburgh-Genome-Foundry/codon-usage-tables/tree/master/data/tables)) of the codon usage of various organisms,
+meant to be used by codon optimization software. All files in are of the form
 
 ```
 amino_acid,codon,relative_frequency
