@@ -1,1 +1,0 @@
-codon_usage_tables

@@ -1,9 +1,0 @@
-MANIFEST.in
-README.md
-setup.py
-python_codon_tables/__init__.py
-python_codon_tables/ez_setup.py
-python_codon_tables.egg-info/PKG-INFO
-python_codon_tables.egg-info/SOURCES.txt
-python_codon_tables.egg-info/dependency_links.txt
-python_codon_tables.egg-info/top_level.txt
