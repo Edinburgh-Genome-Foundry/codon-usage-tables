@@ -11,4 +11,4 @@ def test_basics():
 
     # LOAD ALL TABLES AT ONCE
     codon_tables = pct.get_all_tables()
-    assert (codon_tables['c_elegans_6239']['L']['CUA'])  # returns 0.09
+    assert codon_tables['c_elegans_6239']['L']['CUA'] == 0.09
