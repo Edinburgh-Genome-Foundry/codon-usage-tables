@@ -1,5 +1,6 @@
 include data/tables/*
 include data/version.txt
 include data/organisms.csv
+include python_codon_tables/README.rst
 include *.txt
 include *.rst
