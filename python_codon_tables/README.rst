@@ -1,6 +1,9 @@
 Python Codon Tables
 ===================
 
+.. image:: https://travis-ci.org/Edinburgh-Genome-Foundry/codon-usage-tables.svg?branch=master
+    :target: https://travis-ci.org/Edinburgh-Genome-Foundry/codon-usage-tables
+
 Provides codon usage tables as dictionnaries, for Python 3+
 
 Supported organisms include: B. subtilis, C. elegans, D. melanogaster, E. coli, G. gallus, H. sapiens,  M. musculus, M. musculus domesticus, S. cerevisiae.
