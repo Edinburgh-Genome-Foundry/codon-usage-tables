@@ -2,7 +2,7 @@ import os
 
 
 _this_dir = os.path.dirname(os.path.realpath(__file__))
-_tables_dir = os.path.join(_this_dir, '..', "data", "tables")
+_tables_dir = os.path.join(_this_dir, '..', "codon_usage_data", "tables")
 
 available_tables = [filename[:-4] for filename in os.listdir(_tables_dir)]
 
