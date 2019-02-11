@@ -19,7 +19,8 @@ To retrieve codon tables from all organisms in ``organisms.csv`` at once, use:
 
 """
 import sys
-from python_codon_tables import download_codon_table_from_web
+import os
+from python_codon_tables import download_codons_table
 
 def download_all_tables():
     with open("organisms.csv", "r") as f:
@@ -27,11 +28,11 @@ def download_all_tables():
             organism, taxid = line.strip("\n").split(",")
             print("Retrieving %s (taxid %s)" % (organism, taxid))
             target = os.path.join("tables", "%s_%s.csv" % (organism, taxid))
-            get_codon_table_from_web(taxid=taxid, target_file=target)
+            download_codons_table(taxid=taxid, target_file=target)
 
 if __name__ == "__main__":
     print (" ".join(sys.argv))
     if sys.argv[1] == "all":
         download_all_tables()
     else:
-        download_codon_table_from_web(sys.argv[1], sys.argv[2])
+        download_codons_table(sys.argv[1], sys.argv[2])
