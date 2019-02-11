@@ -6,9 +6,23 @@ Python Codon Tables
 
 Provides codon usage tables as dictionnaries, for Python 3+
 
-Supported organisms include: B. subtilis, C. elegans, D. melanogaster, E. coli, G. gallus, H. sapiens,  M. musculus, M. musculus domesticus, S. cerevisiae.
+Supported organisms include:
 
-These tables are from `kazusa.or.jp <http://www.kazusa.or.jp/codon/readme_codon.html>`_ and here is the original paper to cite:
+- B. subtilis
+- C. elegans
+- D. melanogaster
+- E. coli
+- G. gallus
+- H. sapiens
+- M. musculus
+- M. musculus domesticus
+- S. cerevisiae.
+
+It is also possible to download new tables directly with
+``download_codons_table(taxid=316407)``.
+
+All the tables are from `kazusa.or.jp <http://www.kazusa.or.jp/codon/readme_codon.html>`_
+and here is the original paper to cite:
 
 .. code::
 
@@ -53,9 +67,10 @@ Usage
     print (table['*']['UAA'])  # returns 0.61
 
     # LOAD ALL TABLES AT ONCE
-    codons_tables = pct.get_all_available_tables()
+    codons_tables = pct.get_all_available_codons_tables()
     print (codons_tables['c_elegans_6239']['L']['CUA'])  # returns 0.09
 
     # GET A TABLE DIRECTLY FROM THE INTERNET
     table = pct.download_codons_table(taxid=316407)
+    print (table['*']['UGA'])  # returns 0.29
 
