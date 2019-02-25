@@ -13,7 +13,7 @@ else:
 _this_dir = os.path.dirname(os.path.realpath(__file__))
 _tables_dir = os.path.join(_this_dir, '..', "codon_usage_data", "tables")
 
-available_codon_tables = [
+available_codon_tables_names = [
     filename[:-4] for filename in os.listdir(_tables_dir)]
 
 def csv_string_to_codons_dict(csv_string):
@@ -35,7 +35,7 @@ def get_all_available_codons_tables():
     """Get all data from all of this package's builtin codon usage tables."""
     return {
         table_name: get_codons_table(table_name)
-        for table_name in available_codon_tables
+        for table_name in available_codon_tables_names
     }
 
 @lru_cache(maxsize=128)
