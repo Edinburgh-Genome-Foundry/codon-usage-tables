@@ -4,9 +4,10 @@ Python Codon Tables
 .. image:: https://travis-ci.org/Edinburgh-Genome-Foundry/codon-usage-tables.svg?branch=master
     :target: https://travis-ci.org/Edinburgh-Genome-Foundry/codon-usage-tables
 
-Provides codon usage tables as dictionnaries, for Python 3+
+Provides codon usage tables as dictionnaries, for Python 3+.
 
-Supported organisms include:
+Tables for the following organisms are provided with the library (any other
+table can be downloaded using a TaxID):
 
 - *B. subtilis*
 - *C. elegans*
@@ -17,9 +18,6 @@ Supported organisms include:
 - *M. musculus*
 - *M. musculus domesticus*
 - *S. cerevisiae*
-
-It is also possible to download new tables directly with
-``download_codons_table(taxid=316407)``.
 
 All the tables are from `kazusa.or.jp <http://www.kazusa.or.jp/codon/readme_codon.html>`_
 and here is the original paper to cite:
@@ -66,25 +64,16 @@ Usage
     print (table['T']['ACA'])  # returns 0.4
     print (table['*']['UAA'])  # returns 0.61
 
-    # LOAD ALL TABLES AT ONCE
+    # LOAD ONE TABLE BY TAXID (it will get it from the internet if it is not
+    # in the builtin tables)
+    table = pct.get_codons_table(1423)
+    print (table['T']['ACA'])  # returns 0.4
+    print (table['*']['UAA'])  # returns 0.61
+
+    # LOAD ALL BUIL-IN TABLES AT ONCE
     codons_tables = pct.get_all_available_codons_tables()
     print (codons_tables['c_elegans_6239']['L']['CUA'])  # returns 0.09
 
-    # GET A TABLE DIRECTLY FROM THE INTERNET
-    table = pct.download_codons_table(taxid=316407)
-    print (table['*']['UGA'])  # returns 0.29
-
-If you have an internet connection you can also enter any taxid in
-``get_codons_table`` and the table will be downloaded from the Kasuza website.
-You can write for instance:
-
-.. code:: python
-
-    table = get_codons_table(1423)
-    table = get_codons_table("1423")
-    table = get_codons_table("b_subtilis_1423")
-    table = get_codons_table("b_subtilis")
-
-In the last line above we provided a "shorthand" notation ``b_subtilis``, which
-will be automatically extended to b_subtilis_1423 as it appears so in the
-built-in table (use this feature at your own risks!)
+In ``get_codons_table`` you can also provide a "shorthand" notation
+``b_subtilis``, which will be automatically extended to ``b_subtilis_1423`` as
+it appears so in the built-in table (use this feature at your own risks!)
