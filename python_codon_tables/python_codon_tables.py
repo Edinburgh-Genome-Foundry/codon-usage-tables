@@ -42,15 +42,18 @@ def table_with_U_replaced_by_T(table):
 @lru_cache(maxsize=128)
 def get_codons_table(table_name, replace_U_by_T=True):
     """Get data from one of this package's builtin codon usage tables.
-    
-    Returns a dict {"*": {'UAA': 0.64...}, 'K': {'AAA': 0.76...}, ...}
 
-    The table_name argument very flexible on purpose, it can be either an
+    The ``table_name`` argument very flexible on purpose, it can be either an
     integer representing a taxonomic ID (which will be downloaded from
     the kazusa database), or a string "12245" representing a TaxID, or a string
     "e_coli_316407" referring to a builtin table of python_codon_optimization,
     or a short form "e_coli" which will be automatically extended to
     "e_coli_316407" (at your own risks).
+
+    The ``replace_U_by_T`` argument will replace all codons names from UAA to
+    TAA etc.
+
+    Returns a dict {"*": {'TAA': 0.64...}, 'K': {'AAA': 0.76...}, ...}
     """
     if replace_U_by_T:
         table = get_codons_table(table_name, replace_U_by_T=False)
@@ -62,10 +65,10 @@ def get_codons_table(table_name, replace_U_by_T=True):
     with open(os.path.join(_tables_dir, table_name + '.csv'), 'r') as f:
         return csv_string_to_codons_dict(f.read())
 
-def get_all_available_codons_tables():
+def get_all_available_codons_tables(replace_U_by_T=True):
     """Get all data from all of this package's builtin codon usage tables."""
     return {
-        table_name: get_codons_table(table_name)
+        table_name: get_codons_table(table_name, replace_U_by_T=replace_U_by_T)
         for table_name in available_codon_tables_names
     }
 
