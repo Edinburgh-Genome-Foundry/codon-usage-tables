@@ -59,7 +59,7 @@ Usage
     import python_codon_tables as pct
 
     # PRINT THE LIST OF NAMES OF ALL AVAILABLE TABLES
-    print ('Available tables:', pct.available_codon_tables)
+    print ('Available tables:', pct.available_codon_tables_names)
 
     # LOAD ONE TABLE BY NAME
     table = pct.get_codons_table("b_subtilis_1423")
