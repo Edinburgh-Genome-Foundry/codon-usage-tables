@@ -31,12 +31,20 @@ def csv_string_to_codons_dict(csv_string):
         result[aa][codon] = float(freq)
     return result
 
+def table_with_U_replaced_by_T(table):
+    return {
+        aa: {
+            codon.replace('U', 'T'): freq
+            for codon, freq in aa_data.items()
+        }
+        for aa, aa_data in table.items()
+    }
 @lru_cache(maxsize=128)
-def get_codons_table(table_name):
+def get_codons_table(table_name, replace_U_by_T=True):
     """Get data from one of this package's builtin codon usage tables.
     
     Returns a dict {"*": {'UAA': 0.64...}, 'K': {'AAA': 0.76...}, ...}
-    
+
     The table_name argument very flexible on purpose, it can be either an
     integer representing a taxonomic ID (which will be downloaded from
     the kazusa database), or a string "12245" representing a TaxID, or a string
@@ -44,6 +52,9 @@ def get_codons_table(table_name):
     or a short form "e_coli" which will be automatically extended to
     "e_coli_316407" (at your own risks).
     """
+    if replace_U_by_T:
+        table = get_codons_table(table_name, replace_U_by_T=False)
+        return table_with_U_replaced_by_T(table)
     if isinstance(table_name, int) or str.isdigit(table_name):
         return download_codons_table(taxid=table_name)
     if table_name in available_codon_tables_shortnames:
