@@ -32,3 +32,22 @@ def test_readme_example():
     # GET A TABLE DIRECTLY FROM THE INTERNET
     table = pct.download_codons_table(taxid=316407)
     assert table['*']['UGA'] == 0.29
+
+def test_readme_example():
+    table = pct.get_codons_table("b_subtilis_1423")
+    assert table['T']['ACA'] == 0.4
+    assert table['*']['UAA'] == 0.61
+
+    # LOAD ALL TABLES AT ONCE
+    codons_tables = pct.get_all_available_codons_tables()
+    assert codons_tables['c_elegans_6239']['L']['CUA'] == 0.09
+
+    # GET A TABLE DIRECTLY FROM THE INTERNET
+    table = pct.download_codons_table(taxid=316407)
+    assert table['*']['UGA'] == 0.29
+
+def test_get_codons_table():
+    for table_name in (1423, "1423", "b_subtilis", "b_subtilis_1423"):
+        table = pct.get_codons_table(table_name)
+        assert table['T']['ACA'] == 0.4
+        assert table['*']['UAA'] == 0.61

@@ -16,6 +16,11 @@ _tables_dir = os.path.join(_this_dir, '..', "codon_usage_data", "tables")
 available_codon_tables_names = [
     filename[:-4] for filename in os.listdir(_tables_dir)]
 
+available_codon_tables_shortnames = {
+    "_".join(table_name.split('_')[:-1]): table_name
+    for table_name in available_codon_tables_names
+}
+
 def csv_string_to_codons_dict(csv_string):
     """Transform a CSV string of a codon table to a dict."""
     result = {}
@@ -26,8 +31,23 @@ def csv_string_to_codons_dict(csv_string):
         result[aa][codon] = float(freq)
     return result
 
+@lru_cache(maxsize=128)
 def get_codons_table(table_name):
-    """Get data from one of this package's builtin codon usage tables."""
+    """Get data from one of this package's builtin codon usage tables.
+    
+    Returns a dict {"*": {'UAA': 0.64...}, 'K': {'AAA': 0.76...}, ...}
+    
+    The table_name argument very flexible on purpose, it can be either an
+    integer representing a taxonomic ID (which will be downloaded from
+    the kazusa database), or a string "12245" representing a TaxID, or a string
+    "e_coli_316407" referring to a builtin table of python_codon_optimization,
+    or a short form "e_coli" which will be automatically extended to
+    "e_coli_316407" (at your own risks).
+    """
+    if isinstance(table_name, int) or str.isdigit(table_name):
+        return download_codons_table(taxid=table_name)
+    if table_name in available_codon_tables_shortnames:
+        table_name = available_codon_tables_shortnames[table_name]
     with open(os.path.join(_tables_dir, table_name + '.csv'), 'r') as f:
         return csv_string_to_codons_dict(f.read())
 
