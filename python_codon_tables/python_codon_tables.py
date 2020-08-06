@@ -80,6 +80,8 @@ def download_codons_table(taxid=316407, target_file=None):
     _codon_regexpr = r"([ATGCU]{3}) ([A-Z]|\*) (\d.\d+)"
     url = _kazusa_url % taxid
     html_content = urlopen(url).read().decode().replace("\n", " ")
+    if "<title>not found</title>" in html_content.lower():
+        raise RuntimeError(f'Codon usage table for taxonomy ID \'{taxid}\' not found: {url}')
     csv_data = "\n".join(["amino_acid,codon,relative_frequency"] + sorted([
         "%s,%s,%s" % (aa, codon, usage)
         for codon, aa, usage in re.findall(_codon_regexpr, html_content)
