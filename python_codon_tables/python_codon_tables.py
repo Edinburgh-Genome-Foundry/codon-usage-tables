@@ -81,7 +81,9 @@ def download_codons_table(taxid=316407, target_file=None):
     url = _kazusa_url % taxid
     html_content = urlopen(url).read().decode().replace("\n", " ")
     if "<title>not found</title>" in html_content.lower():
-        raise RuntimeError(f'Codon usage table for taxonomy ID \'{taxid}\' not found: {url}')
+        raise RuntimeError("Codon usage table for taxonomy ID '%s' not found:"
+                           " %s"
+                           % (taxid, url))
     csv_data = "\n".join(["amino_acid,codon,relative_frequency"] + sorted([
         "%s,%s,%s" % (aa, codon, usage)
         for codon, aa, usage in re.findall(_codon_regexpr, html_content)
