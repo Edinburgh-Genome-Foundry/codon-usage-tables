@@ -53,12 +53,9 @@ Usage
     codons_tables = pct.get_all_available_codons_tables()
     print (codons_tables['c_elegans_6239']['L']['CTA'])  # returns 0.09
 
-- Notice that by default the tables use nucleotide T instead of U. Using
-  ``get_codons_table('e_coli', replace_U_by_T=False)`` will leave Us as Us.
+- Notice that by default the tables use nucleotide T instead of U. Using ``get_codons_table('e_coli', replace_U_by_T=False)`` will leave Us as Us.
 
-- In ``get_codons_table`` you can also provide a "shorthand" notation
-``b_subtilis``, which will be automatically extended to ``b_subtilis_1423`` as
-it appears so in the built-in table (use this feature at your own risks!)
+- In ``get_codons_table`` you can also provide a "shorthand" notation ``b_subtilis``, which will be automatically extended to ``b_subtilis_1423`` as it appears so in the built-in table (use this feature at your own risks!)
 
 Contribute
 ----------
@@ -79,3 +76,11 @@ Manual:
 .. code:: bash
 
     (sudo) python setup.py install
+
+More biology software
+-----------------------
+
+.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Edinburgh-Genome-Foundry.github.io/master/static/imgs/logos/egf-codon-horizontal.png
+  :target: https://edinburgh-genome-foundry.github.io/
+
+This library is part of the `EGF Codons <https://edinburgh-genome-foundry.github.io/>`_ synthetic biology software suite for DNA design, manufacturing and validation.
