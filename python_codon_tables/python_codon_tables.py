@@ -15,9 +15,7 @@ else:
 _this_dir = os.path.dirname(os.path.realpath(__file__))
 _tables_dir = os.path.join(_this_dir, "..", "codon_usage_data", "tables")
 
-available_codon_tables_names = [
-    filename[:-4] for filename in os.listdir(_tables_dir)
-]
+available_codon_tables_names = [filename[:-4] for filename in os.listdir(_tables_dir)]
 
 available_codon_tables_shortnames = {
     "_".join(table_name.split("_")[:-1]): table_name
@@ -68,9 +66,7 @@ def get_codons_table(table_name, replace_U_by_T=True, web_timeout=5):
     
     """
     if replace_U_by_T:
-        table = get_codons_table(
-            table_name, replace_U_by_T=False, web_timeout=5
-        )
+        table = get_codons_table(table_name, replace_U_by_T=False, web_timeout=5)
         return table_with_U_replaced_by_T(table)
     if isinstance(table_name, int) or str.isdigit(table_name):
         return download_codons_table(taxid=table_name, timeout=web_timeout)
@@ -92,8 +88,7 @@ def get_all_available_codons_tables(replace_U_by_T=True):
 def download_codons_table(taxid=316407, target_file=None, timeout=5):
     """Get all data from all of this package's builtin codon usage tables."""
     _kazusa_url = (
-        "http://www.kazusa.or.jp/codon/cgi-bin/showcodon.cgi"
-        "?aa=1&style=N&species=%s"
+        "http://www.kazusa.or.jp/codon/cgi-bin/showcodon.cgi" "?aa=1&style=N&species=%s"
     )
     _codon_regexpr = r"([ATGCU]{3}) ([A-Z]|\*) (\d.\d+)"
     url = _kazusa_url % taxid
@@ -112,14 +107,16 @@ def download_codons_table(taxid=316407, target_file=None, timeout=5):
             raise err
 
     html_content = web_handle.read().decode().replace("\n", " ")
+    if "<title>not found</title>" in html_content.lower():
+        raise RuntimeError(
+            "Codon usage table for taxonomy ID '%s' not found:" " %s" % (taxid, url)
+        )
     csv_data = "\n".join(
         ["amino_acid,codon,relative_frequency"]
         + sorted(
             [
                 "%s,%s,%s" % (aa, codon, usage)
-                for codon, aa, usage in re.findall(
-                    _codon_regexpr, html_content
-                )
+                for codon, aa, usage in re.findall(_codon_regexpr, html_content)
             ]
         )
     )
