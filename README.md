@@ -1,8 +1,8 @@
 Codon usage tables for various organisms, in CSV format
---------------------------------------------------------
+-------------------------------------------------------
 
 This repository contains simple CSV files (in [``data/tables/``](https://github.com/Edinburgh-Genome-Foundry/codon-usage-tables/tree/master/data/tables)) of the codon usage of various organisms,
-meant to be used by codon optimization software. All files in are of the form
+meant to be used by codon optimization software. All files are in the form
 
 ```
 amino_acid,codon,relative_frequency
@@ -39,5 +39,4 @@ To get these tables from Python, use the [python_codon_tables](https://github.co
 Contribute
 ----------
 
-This repo was started at the Edinburgh Genome Foundry by Zulko and is released
-on [Github](https://github.com/Edinburgh-Genome-Foundry/codon-usage-tables) under a Public Domain licence (and no warranty whatsoever, please cross-check the codon usage with other sources if you are not sure). Feel free to add other tables if you think of more commonly used species.
+This repo was started at the Edinburgh Genome Foundry by Zulko and is released on [Github](https://github.com/Edinburgh-Genome-Foundry/codon-usage-tables) into the Public Domain, and is also available under the [CC0 license](LICENSE) (and no warranty whatsoever, please cross-check the codon usage with other sources if you are not sure). Feel free to add other tables if you think of more commonly used species.
