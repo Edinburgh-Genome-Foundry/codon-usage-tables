@@ -1,8 +1,9 @@
 Python Codon Tables
 ===================
 
-.. image:: https://travis-ci.org/Edinburgh-Genome-Foundry/codon-usage-tables.svg?branch=master
-    :target: https://travis-ci.org/Edinburgh-Genome-Foundry/codon-usage-tables
+.. image:: https://github.com/Edinburgh-Genome-Foundry/codon-usage-tables/actions/workflows/build.yml/badge.svg
+    :target: https://github.com/Edinburgh-Genome-Foundry/codon-usage-tables/actions/workflows/build.yml
+    :alt: GitHub CI build status
 
 Provides codon usage tables as dictionnaries, for Python 3+.
 

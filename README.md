@@ -34,8 +34,6 @@ Python bindings
 
 To get these tables from Python, use the [python_codon_tables](https://github.com/Edinburgh-Genome-Foundry/codon-usage-tables/tree/master/python_codon_tables) package.
 
-
-
 Contribute
 ----------
 
